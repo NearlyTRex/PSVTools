@@ -41,3 +41,4 @@ def expand_file(fp, op=None):
         op.write(b'\x00' * 512)
 
     print("Complete!            ")
+    return True

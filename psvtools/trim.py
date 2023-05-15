@@ -68,3 +68,4 @@ def trim_file(fp, op=None):
         if i >= 100:
             print('\rWritten %d%%' % (fp.tell() * 100 // end_of_data), end='')
     print("Complete!            ")
+    return True
