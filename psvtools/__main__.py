@@ -14,7 +14,7 @@ def main(args=None):
     command.add_argument('-v', '--verify', dest='command', action='store_const', const=verify_file, help='Validate the checksum of a psv file')
 
     parser.add_argument('-o', '--output', type=argparse.FileType('wb', 0), help='output file to write to')
-    parser.add_argument('file', type=argparse.FileType('r+b', 0), help='psv file to operate on')
+    parser.add_argument('file', type=argparse.FileType('rb', 0), help='psv file to operate on')
     parser.set_defaults(command=trim_file)
 
     args = parser.parse_args()
@@ -26,7 +26,7 @@ def trim():
     parser = argparse.ArgumentParser('psvtrim')
 
     parser.add_argument('-o', '--output', type=argparse.FileType('wb', 0), help='output file to write to')
-    parser.add_argument('file', type=argparse.FileType('r+b', 0), help='psv file to operate on')
+    parser.add_argument('file', type=argparse.FileType('rb', 0), help='psv file to operate on')
 
     args = parser.parse_args()
     success = trim_file(args.file, args.output)
@@ -37,7 +37,7 @@ def expand():
     parser = argparse.ArgumentParser('psvexpand')
 
     parser.add_argument('-o', '--output', type=argparse.FileType('wb', 0), help='output file to write to')
-    parser.add_argument('file', type=argparse.FileType('r+b', 0), help='psv file to operate on')
+    parser.add_argument('file', type=argparse.FileType('rb', 0), help='psv file to operate on')
 
     args = parser.parse_args()
     success = expand_file(args.file, args.output)
@@ -47,7 +47,7 @@ def expand():
 def verify():
     parser = argparse.ArgumentParser('psverify')
 
-    parser.add_argument('file', type=argparse.FileType('r+b', 0), help='psv file to operate on')
+    parser.add_argument('file', type=argparse.FileType('rb', 0), help='psv file to operate on')
 
     args = parser.parse_args()
     success = verify_file(args.file)
